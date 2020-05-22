@@ -248,11 +248,11 @@ function draw() {
 
 }
 
-// function mousePressed(){
-//   if (mouseY < (h / 2 - s * 1.5) && mouseY > (h / 2 - s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on < 2) {
-//     onsound.play();
-//   } else if (mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on > 2) {
-//     offsound.play();
-//
-//   }
-// }
+function mousePressed(){
+  if (mouseY < (h / 2 - s * 1.5) && mouseY > (h / 2 - s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on < 2) {
+    onsound.play();
+  } else if (mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on > 2) {
+    offsound.play();
+
+  }
+}
