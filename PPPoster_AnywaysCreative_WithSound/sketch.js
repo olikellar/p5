@@ -19,6 +19,9 @@ let t5 = 'Thursday 27th February · 4:30pm'
 let onsound;
 let offsound;
 
+let onstat = 0;
+let offstat = 1;
+
 
 function setup() {
   if (windowWidth > windowHeight) {
@@ -105,7 +108,20 @@ function draw() {
     d = 'off'
   } else if (mouseIsPressed && mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5)) {
     on = on - (on + 1);
+    d = 'on'
 
+  }
+
+  if (onstat == '0' && onsound.isPlaying() == false && mouseIsPressed && mouseY < (h / 2 - s * 1.5) && mouseY > (h / 2 - s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5)){
+    // onsound.playMode('untilDone');
+    onsound.play();
+    onstat = 1;
+    offstat = 0;
+  } else if (offstat == '0' && offsound.isPlaying() == false && mouseIsPressed && mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5)){
+    // onsound.playMode('untilDone');
+    offsound.play();
+    offstat = 1;
+    onstat = 0;
   }
 
 
@@ -232,11 +248,11 @@ function draw() {
 
 }
 
-function mousePressed(){
-  if (mouseIsPressed && mouseY < (h / 2 - s * 1.5) && mouseY > (h / 2 - s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on < 2) {
-    onsound.play();
-  } else if (mouseIsPressed && mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on > 2) {
-    offsound.play();
-
-  }
-}
+// function mousePressed(){
+//   if (mouseY < (h / 2 - s * 1.5) && mouseY > (h / 2 - s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on < 2) {
+//     onsound.play();
+//   } else if (mouseY > (h / 2 + s * 1.5) && mouseY < (h / 2 + s * 5.5) && mouseX < (w / 2 + s * 3.5) && mouseX > (w / 2 - s * 3.5) && on > 2) {
+//     offsound.play();
+//
+//   }
+// }
