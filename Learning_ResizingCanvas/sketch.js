@@ -1,3 +1,9 @@
+let cinzel;
+
+function preload(){
+cinzel = loadFont('CinzelDecorative-Regular.ttf');
+}
+
 function setup() {
   if (windowWidth > windowHeight) {
     createCanvas(windowHeight - 5, windowHeight - 5);
@@ -18,4 +24,8 @@ function windowResized() {
 
 function draw() {
   background(220);
+  fill(255);
+  textFont(cinzel);
+  textSize(width/10);
+  text('resize', width/2, height/2);
 }
