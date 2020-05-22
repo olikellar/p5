@@ -23,9 +23,10 @@ function windowResized() {
 }
 
 function draw() {
-  background(220);
+  background(30);
   fill(255);
   textFont(cinzel);
   textSize(width/10);
+  textAlign(CENTER);
   text('resize', width/2, height/2);
 }
