@@ -26,7 +26,7 @@ function draw() {
   background(30);
   fill(255);
   textFont(cinzel);
-  textSize(width/10);
+  textSize(width/7);
   textAlign(CENTER);
   text('resize', width/2, height/2);
 }
