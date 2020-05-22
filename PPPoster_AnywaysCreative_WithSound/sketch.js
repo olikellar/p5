@@ -10,7 +10,7 @@ let g = 112;
 let b = 228;
 let glow = 0;
 
-let t1 = 'Anywways Creative'
+let t1 = 'Anyways Creative'
 let t2 = 'Professional Practice'
 let t3 = '4:30pm'
 let t4 = 'Sallis Benney Theatre'
