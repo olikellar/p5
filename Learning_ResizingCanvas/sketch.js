@@ -23,7 +23,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(30);
+  background(30,133,133);
   fill(255);
   textFont(cinzel);
   textSize(width/7);
