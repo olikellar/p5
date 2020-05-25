@@ -498,7 +498,7 @@ function draw() {
     //roll over colour change
     if (mouseX > width - 65 && mouseX < width - 15 && mouseY > 15 && mouseY < 65) {
       buttonColour = ([255, 100]);
-    } if (width < 250 || height , 400){
+    } else if (width < 250 || height < 400){
       buttonColour = ([0, 0]);
     } else {
       buttonColour = ([0, 100]);
