@@ -1,5 +1,5 @@
 //Colours
-let lineColour = ([0,]);
+let lineColour = ([0,0]);
 let buttonColour = ([0, 100]);
 
 let wallColour = ([165, 175, 175]);
