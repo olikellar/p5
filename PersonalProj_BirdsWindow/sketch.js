@@ -1,5 +1,5 @@
 //Colours
-let lineColour = ([0,0]);
+let lineColour = ([255]);
 let buttonColour = ([0, 100]);
 
 let wallColour = ([165, 175, 175]);
@@ -73,16 +73,17 @@ function windowResized() {
 function draw() {
   background(165, 227, 255);
   stroke(lineColour);
+  strokeWeight(scale/5);
 
   //Adjusted coordinates
   {
-    let newx = round(mouseX - width / 2);
-    let newy = round(mouseY - height / 2);
-    fill(0);
-    noStroke();
-    text('x:' + newx, mouseX + 16, mouseY);
-    text('y:' + newy, mouseX + 16, mouseY + 10);
-    stroke(0);
+    // let newx = round(mouseX - width / 2);
+    // let newy = round(mouseY - height / 2);
+    // fill(0);
+    // noStroke();
+    // text('x:' + newx, mouseX + 16, mouseY);
+    // text('y:' + newy, mouseX + 16, mouseY + 10);
+    // stroke(0);
     // //New axis
     // line(width / 2, 0, width / 2, height);
     // line(0, height / 2, width, height / 2);
@@ -294,12 +295,12 @@ function draw() {
     i4y = hc + ((1.5 * i_sy) + i_py);
 
     if(mouseIsPressed && pmouseY < mouseY && i_py < 0){
-    i_py = i_py +5;
-    h_py = h_py +5;
+    i_py = i_py +2;
+    h_py = h_py +2;
     }
     if(mouseIsPressed && pmouseY > mouseY && i_py > scale*-60){
-    i_py = i_py -5;
-    h_py = h_py -5;
+    i_py = i_py -2;
+    h_py = h_py -2;
     }
   }
 
