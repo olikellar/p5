@@ -1105,22 +1105,22 @@ endShape(CLOSE);
   //Colour Shifter                  0 + b
   {
     //Stlying Wall
-    fill(255,120,125,80);
-    stroke(lineColour);
+//     fill(255,120,125,80);
+//     stroke(lineColour);
 
-    //Draw Wall
-    beginShape();
-    vertex(-5, -5);
-    vertex(-5, height + 5);
-    vertex(width + 5, height + 5);
-    vertex(width + 5, -5);
-    beginContour();
-    vertex(b1x, b1y);
-    vertex(b2x, b2y);
-    vertex(b3x, b3y);
-    vertex(b4x, b4y);
-    endContour();
-    endShape(CLOSE);
+//     //Draw Wall
+//     beginShape();
+//     vertex(-5, -5);
+//     vertex(-5, height + 5);
+//     vertex(width + 5, height + 5);
+//     vertex(width + 5, -5);
+//     beginContour();
+//     vertex(b1x, b1y);
+//     vertex(b2x, b2y);
+//     vertex(b3x, b3y);
+//     vertex(b4x, b4y);
+//     endContour();
+//     endShape(CLOSE);
     }
 
 
@@ -1131,10 +1131,13 @@ endShape(CLOSE);
     //roll over colour change
     if (mouseX > width - 65 && mouseX < width - 15 && mouseY > 15 && mouseY < 65) {
       buttonColour = ([255, 100]);
-    } else {
+    } else if (displayWidth < 500 || displayHeight < 600){
+      buttonColour = ([255, 0]);
+    }else {
       buttonColour = ([0, 100]);
     }
 
+    strokeWeight(1);
     //scale variables
     let fs_sx = 1;
     let fs_sy = 1;
@@ -1262,4 +1265,3 @@ function mousePressed(){
   if(!sound.isLooping()){
   sound.loop();
   }
-}
