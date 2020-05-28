@@ -7,4 +7,4 @@ https://olikellar.github.io/p5/PersonalProj_Birds/
 
 https://olikellar.github.io/p5/PersonalProj_Paintings/
 
-https://olikellar.github.io/p5/PersonalProj_PersonalProj_Plane/
+https://olikellar.github.io/p5/PersonalProj_Plane/
