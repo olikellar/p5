@@ -86,6 +86,7 @@ function setup() {
   xscaler = 1;
   yscaler = 1;
 
+  noCursor();
 }
 
 function windowResized() {
