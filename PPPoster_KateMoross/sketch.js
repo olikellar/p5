@@ -6,7 +6,7 @@ let t5 = '16:30'
 
 function setup() {
   if (windowWidth > windowHeight) {
-    createCanvas(windowHeight - 5, windowHeight - 5);
+    createCanvas(windowHeight, windowHeight);
   }
   if (windowWidth < windowHeight) {
     createCanvas(windowWidth, windowWidth);
@@ -14,32 +14,32 @@ function setup() {
 }
 
 function windowResized() {
-  if (windowWidth > windowHeight - 5) {
-    resizeCanvas(windowHeight - 5, windowHeight - 5)
+  if (windowWidth > windowHeight) {
+    createCanvas(windowHeight, windowHeight)
   }
-  if (5 + windowWidth < windowHeight) {
-    resizeCanvas(windowWidth, windowWidth)
+  if (windowWidth < windowHeight) {
+    createCanvas(windowWidth, windowWidth)
   }
 }
 
 function draw() {
   background(70, 190, 255);
   noCursor();
-
+  
   noStroke();
-
+  
   let mapx = map(mouseX, 0, width, -1, 1, true);
   let mapy = map(mouseX, 0, width, -1, 1, true);
   let randn = random(0, 0);
-  var x1 = ((width * ( 2/ 3)) - mouseX) + (.5 * cos(mapx));
-  var y1 = ((width / 3) - (mouseY)) + .5 * tan(mapy);
+  var x1 = ((width * ( 2/ 3)) - mouseX) + (0.5 * cos(mapx));
+  var y1 = ((width / 3) - (mouseY)) + 0.5 * tan(mapy);
 
   let w = width / 350
   let h = height / 350
 
   let xw = -32 * h;
   let yw = -320 * h;
-
+  
   textAlign(LEFT);
     strokeWeight(0);
     fill(255);
@@ -48,7 +48,7 @@ function draw() {
     textSize(h*49);
     text(t1, h*4, h*31);
     textStyle(NORMAL);
-    textSize(h*7.);
+    textSize(h*7);
     text(t2, h*5, h*345);
     //text(t3, h*105, h*345);
     //text(t4, h*205, h*345);
@@ -56,7 +56,7 @@ function draw() {
     text(t5, h*325, h*345);
   //flower
   {
-    //stem
+    //stem 
     {
       fill("#54a060");
       let stem_x = xw;
@@ -101,9 +101,9 @@ function draw() {
       vertex((stem_xScale * 318) + stem_x, (stem_yScale * 643) + stem_y);
       vertex((stem_xScale * 319) + stem_x, (stem_yScale * 688) + stem_y);
       endShape(CLOSE);
-      //ENDstem
+      //ENDstem 
     }
-    //pet1
+    //pet1 
     {
       fill("#fafffc");
       let pet1_x = xw + x1;
@@ -131,9 +131,9 @@ function draw() {
       vertex((pet1_xScale * 256) + pet1_x, (pet1_yScale * 447) + pet1_y);
       vertex((pet1_xScale * 257) + pet1_x, (pet1_yScale * 446) + pet1_y);
       endShape(CLOSE);
-      //ENDpet1
+      //ENDpet1 
     }
-    //pet2
+    //pet2 
     {
       fill("#fafffc");
       let pet2_x = xw + x1;
@@ -156,9 +156,9 @@ function draw() {
       vertex((pet2_xScale * 266) + pet2_x, (pet2_yScale * 446) + pet2_y);
       vertex((pet2_xScale * 265) + pet2_x, (pet2_yScale * 445) + pet2_y);
       endShape(CLOSE);
-      //ENDpet2
+      //ENDpet2 
     }
-    //pet3
+    //pet3 
     {
       fill("#fafffc");
       let pet3_x = xw - y1;
@@ -181,12 +181,11 @@ function draw() {
       vertex((pet3_xScale * 280) + pet3_x, (pet3_yScale * 450) + pet3_y);
       vertex((pet3_xScale * 278) + pet3_x, (pet3_yScale * 447) + pet3_y);
       vertex((pet3_xScale * 277) + pet3_x, (pet3_yScale * 446) + pet3_y);
-      2
       vertex((pet3_xScale * 273) + pet3_x, (pet3_yScale * 444) + pet3_y);
       endShape(CLOSE);
-      //ENDpet3
+      //ENDpet3 
     }
-    //pet4
+    //pet4 
     {
       fill("#fafffc");
       let pet4_x = xw - x1;
@@ -212,9 +211,9 @@ function draw() {
       vertex((pet4_xScale * 283) + pet4_x, (pet4_yScale * 439) + pet4_y);
       vertex((pet4_xScale * 281) + pet4_x, (pet4_yScale * 439) + pet4_y);
       endShape(CLOSE);
-      //ENDpet4
+      //ENDpet4 
     }
-    //pet5
+    //pet5 
     {
       fill("#fafffc");
       let pet5_x = xw + y1;
@@ -241,9 +240,9 @@ function draw() {
       vertex((pet5_xScale * 285) + pet5_x, (pet5_yScale * 435) + pet5_y);
       vertex((pet5_xScale * 282) + pet5_x, (pet5_yScale * 435) + pet5_y);
       endShape(CLOSE);
-      //ENDpet5
+      //ENDpet5 
     }
-    //pet6
+    //pet6 
     {
       fill("#fafffc");
       let pet6_x = xw + x1 + x1;
@@ -268,9 +267,9 @@ function draw() {
       vertex((pet6_xScale * 287) + pet6_x, (pet6_yScale * 429) + pet6_y);
       vertex((pet6_xScale * 285) + pet6_x, (pet6_yScale * 430) + pet6_y);
       endShape(CLOSE);
-      //ENDpet6
+      //ENDpet6 
     }
-    //pet7
+    //pet7 
     {
       fill("#fafffc");
       let pet7_x = xw + x1 + y1;
@@ -291,9 +290,9 @@ function draw() {
       vertex((pet7_xScale * 280) + pet7_x, (pet7_yScale * 425) + pet7_y);
       vertex((pet7_xScale * 277) + pet7_x, (pet7_yScale * 428) + pet7_y);
       endShape(CLOSE);
-      //ENDpet7
+      //ENDpet7 
     }
-    //pet8
+    //pet8 
     {
       fill("#fafffc");
       let pet8_x = xw - x1;
@@ -316,9 +315,9 @@ function draw() {
       vertex((pet8_xScale * 269) + pet8_x, (pet8_yScale * 430) + pet8_y);
       vertex((pet8_xScale * 270) + pet8_x, (pet8_yScale * 432) + pet8_y);
       endShape(CLOSE);
-      //ENDpet8
+      //ENDpet8 
     }
-    //pet9
+    //pet9 
     {
       fill("#fafffc");
       let pet9_x = xw - y1 - y1;
@@ -347,9 +346,9 @@ function draw() {
       vertex((pet9_xScale * 260) + pet9_x, (pet9_yScale * 431) + pet9_y);
       vertex((pet9_xScale * 260) + pet9_x, (pet9_yScale * 432) + pet9_y);
       endShape(CLOSE);
-      //ENDpet9
+      //ENDpet9 
     }
-    //pet10
+    //pet10 
     {
       fill("#fafffc");
       let pet10_x = xw + y1 + y1;
@@ -377,9 +376,9 @@ function draw() {
       vertex((pet10_xScale * 254) + pet10_x, (pet10_yScale * 431) + pet10_y);
       vertex((pet10_xScale * 256) + pet10_x, (pet10_yScale * 431) + pet10_y);
       endShape(CLOSE);
-      //ENDpet10
+      //ENDpet10 
     }
-    //pet11
+    //pet11 
     {
       fill("#fafffc");
       let pet11_x = xw + y1;
@@ -405,9 +404,9 @@ function draw() {
       vertex((pet11_xScale * 249) + pet11_x, (pet11_yScale * 433) + pet11_y);
       vertex((pet11_xScale * 257) + pet11_x, (pet11_yScale * 434) + pet11_y);
       endShape(CLOSE);
-      //ENDpet11
+      //ENDpet11 
     }
-    //pet12
+    //pet12 
     {
       fill("#fafffc");
       let pet12_x = xw - x1 - x1;
@@ -435,9 +434,9 @@ function draw() {
       vertex((pet12_xScale * 257) + pet12_x, (pet12_yScale * 441) + pet12_y);
       vertex((pet12_xScale * 259) + pet12_x, (pet12_yScale * 440) + pet12_y);
       endShape(CLOSE);
-      //ENDpet12
+      //ENDpet12 
     }
-    //pet13
+    //pet13 
     {
       fill("#fafffc");
       let pet13_x = xw - x1 - y1;
@@ -464,9 +463,9 @@ function draw() {
       2
       vertex((pet13_xScale * 263) + pet13_x, (pet13_yScale * 445) + pet13_y);
       endShape(CLOSE);
-      //ENDpet13
+      //ENDpet13 
     }
-    //pet14
+    //pet14 
     {
       fill("#fafffc");
       let pet14_x = xw - x1 + y1;
@@ -490,9 +489,9 @@ function draw() {
       vertex((pet14_xScale * 287) + pet14_x, (pet14_yScale * 429) + pet14_y);
       vertex((pet14_xScale * 283) + pet14_x, (pet14_yScale * 432) + pet14_y);
       endShape(CLOSE);
-      //ENDpet14
+      //ENDpet14 
     }
-    //pet14
+    //pet14 
     {
       fill("#fafffc");
       let pet14_x = xw + x1 - y1;
@@ -516,9 +515,9 @@ function draw() {
       vertex((pet14_xScale * 258) + pet14_x, (pet14_yScale * 425) + pet14_y);
       vertex((pet14_xScale * 261) + pet14_x, (pet14_yScale * 428) + pet14_y);
       endShape(CLOSE);
-      //ENDpet14
+      //ENDpet14 
     }
-    //yellow
+    //yellow 
     {
       fill("#e4c500");
       let yellow_x = mouseX-(267*h);
@@ -570,7 +569,7 @@ function draw() {
       vertex((yellow_xScale * 268) + yellow_x, (yellow_yScale * 447) + yellow_y);
       vertex((yellow_xScale * 269) + yellow_x, (yellow_yScale * 447) + yellow_y);
       endShape(CLOSE);
-      //ENDyellow
+      //ENDyellow 
     }
   }
 }
