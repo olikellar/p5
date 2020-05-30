@@ -5,21 +5,23 @@ let t4 = 'Thursday 30th April'
 let t5 = '16:30'
 
 function setup() {
-  if (windowWidth > windowHeight) {
-    createCanvas(windowHeight, windowHeight);
-  }
-  if (windowWidth < windowHeight) {
-    createCanvas(windowWidth, windowWidth);
-  }
+  // if (windowWidth > windowHeight) {
+  //   createCanvas(windowHeight, windowHeight);
+  // }
+  // if (windowWidth < windowHeight) {
+  //   createCanvas(windowWidth, windowWidth);
+  // }
+  createCanvas(windowWidth,windowWidth);
 }
 
 function windowResized() {
-  if (windowWidth > windowHeight) {
-    createCanvas(windowHeight, windowHeight)
-  }
-  if (windowWidth < windowHeight) {
-    createCanvas(windowWidth, windowWidth)
-  }
+  // if (windowWidth > windowHeight) {
+  //   createCanvas(windowHeight, windowHeight)
+  // }
+  // if (windowWidth < windowHeight) {
+  //   createCanvas(windowWidth, windowWidth)
+  // }
+  createCanvas(windowWidth,windowWidth);
 }
 
 function draw() {
