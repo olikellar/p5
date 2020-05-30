@@ -11,7 +11,7 @@ function setup() {
   // if (windowWidth < windowHeight) {
   //   createCanvas(windowWidth, windowWidth);
   // }
-  createCanvas(windowWidth,windowWidth);
+  createCanvas(windowHeight,windowHeight);
 }
 
 function windowResized() {
@@ -21,7 +21,7 @@ function windowResized() {
   // if (windowWidth < windowHeight) {
   //   createCanvas(windowWidth, windowWidth)
   // }
-  createCanvas(windowWidth,windowWidth);
+  createCanvas(windowHeight,windowHeight);
 }
 
 function draw() {
