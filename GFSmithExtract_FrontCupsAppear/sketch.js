@@ -32,7 +32,7 @@ function setup() {
   cursor('pointer');
   //noCursor();
 
-  let cnv = createCanvas(size, size - (size - (size)));
+  let cnv = createCanvas(windowWidth, windowHeight);
 
   w = width;
   h = height;
@@ -52,7 +52,7 @@ function windowResized() {
   if (windowWidth > windowHeight) {
     size = windowHeight;
   } else size = windowWidth;
-  let cnv = createCanvas(size, size - (size - (size)));
+  let cnv = createCanvas(windowWidth, windowHeight);
 
   background(moon);
 }
