@@ -34,7 +34,7 @@ function setup() {
 
   let cnv = createCanvas(windowWidth, windowHeight);
 
-  w = width;
+  w = height;
   h = height;
 
   x = w / h
