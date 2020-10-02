@@ -36,7 +36,7 @@ let time;
 function setup() {
   s = windowHeight/500;
   s2 = s;
-
+  
   ax = random(100,200);
   bx = random(200,300);
   cx = random(300,400);
@@ -45,7 +45,7 @@ function setup() {
   fx = random(200,300);
   gx = random(100,200);
   hx = random(100,200);
-
+  
   ay = random(100,200);
   by = random(100,200);
   cy = random(100,200);
@@ -54,11 +54,11 @@ function setup() {
   fy = random(300,400);
   gy = random(300,400);
   hy = random(200,300);
-
+  
   colourR =random(30,240);
   colourG =random(30,240);
   colourB =random(30,240);
-
+  
   c = createCanvas(windowHeight, windowHeight);
   background(255);
   fill(colourR, colourG, colourB);
@@ -72,7 +72,7 @@ function setup() {
   vertex(s2*fx,s*fy);
   vertex(s2*gx,s*gy);
   vertex(s2*hx,s*hy);
-
+ 
   endShape();
 }
 
@@ -93,7 +93,7 @@ function draw() {
   text(t4, 5*s, 60*s);
   text(t5, 5*s, 70*s);
   text(t6, 5*s, 80*s);
-
+  
   if(millis()<1000){
     time = 20;
   }else if(millis()<2000){
@@ -137,7 +137,7 @@ function draw() {
   }else if(millis()>20000){
     time = '';
   }
-
+  
   textSize(30*s);
   strokeWeight(0);
   fill(255);
@@ -145,13 +145,13 @@ function draw() {
   noStroke();
   fill(150);
   text(time, 5*s, 115*s);
-
+  
   strokeWeight(6);
   stroke(0);
   if (mouseIsPressed === true && millis() < 20000) {
     line(pmouseX, pmouseY, mouseX, mouseY);
   }
-
+  
   strokeWeight(1);
   noFill();
   beginShape();
@@ -185,8 +185,6 @@ function draw() {
   vertex(30*s,17*s);
   vertex(24*s,17*s);
   endShape();
-
-  print(millis());
 }
 
 
@@ -196,3 +194,4 @@ function mousePressed(){
 saveCanvas('myCanvas', 'jpg');
 }
 }
+
