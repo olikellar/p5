@@ -1,54 +1,58 @@
-class Mover {
-  constructor(x, y, r) {
-    this.pos = createVector(x, y);
-    this.vel = createVector(random(-8, 8), 0);
-    this.acc = createVector(0, 0);
-    this.rad = r;
-  }
+let movers = [];
+let scalr;
 
-  applyForce(force) {
-    this.acc.add(force);
-  }
-
-  edges() {
-    if (this.pos.y > height - this.rad - (height / 11.7)) {
-      this.pos.y = height - this.rad - (height / 11.7);
-      this.vel.y *= random(-0.89, -0.95);
-    }
-    if (this.pos.y == height - this.rad - (height / 11.7)) {
-      this.vel.x *= random(0.99, 0.98);
-    }
-
-    if (this.pos.x >= width - this.rad - (height / 11.7)) {
-      this.pos.x = width - this.rad - (height / 11.7);
-      this.vel.x *= random(-0.99, -0.95);
-    }
-    if (this.pos.x <= 0 + this.rad + (height / 11.7)) {
-      this.pos.x = 0 + this.rad + (height / 11.7);
-      this.vel.x *= random(-0.99, -0.95);
-    }
+function setup() {
+  createCanvas(windowHeight, windowHeight);
+  for (i = 0; i < 10; i++) {
+    movers[i] = new Mover(random(width), random(0 - height, 0), (width / 14));
 
   }
+}
 
-  clicked(px, py) {
-    let d = dist(px, py, this.pos.x, this.pos.y);
-    let sideMotion = (px - this.pos.x) / -5;
-    let upMotion = random(-26,-18)
-    if (d < this.rad) {
-      this.acc.add(sideMotion, upMotion);
-    }
+function touchStarted() {
+  for (i = 0; i < movers.length; i++) {
+    movers[i].clicked(mouseX, mouseY);
   }
+}
+  function windowResized() {
+  resizeCanvas(windowHeight, windowHeight);
+}
 
-  update() {
-    this.vel.add(this.acc);
-    this.pos.add(this.vel);
-    this.acc.set(0, 0);
-  }
+function draw() {
+  scalr = width / 1000;
+  
+  background(221, 255, 51);
+  stroke(255);
+  strokeWeight(20 * scalr);
+  rectMode(CENTER);
+  rect(width / 2, width / 2, width * 0.85, width * 0.85);
+  noFill();
+  rect(width / 2, width / 2, width * 0.60, width * 0.85);
+  rect(width / 2, width / 2, width * 0.60, width * 0.45);
+  line(width / 2, width * 0.28, width / 2, width * 0.72);
 
-  show() {
-    stroke(0);
-    strokeWeight(1);
-    fill(221, 255, 51);
-    ellipse(this.pos.x, this.pos.y, this.rad * 2);
+
+  for (let mover of movers) {
+    let gravity = createVector(0, 0.4);
+    mover.applyForce(gravity);
+    mover.update();
+    mover.edges();
+    mover.show();
   }
+  push();
+  fill(255);
+  stroke(0);
+  strokeWeight(2);
+  textStyle(BOLD);
+  textSize(170 * scalr);
+  textAlign(CENTER, CENTER);
+  textFont('Avenir');
+  text('HORT', height / 2, height / 1.96);
+  textStyle(NORMAL);
+  noStroke();
+  fill(0);
+  textSize(23 * scalr);
+  text('THU 25 FEBRUARY', height / 6.15, height / 1.035);
+  text('12:00 · ONLINE', height / 1.17, height / 1.035);
+  pop();
 }
