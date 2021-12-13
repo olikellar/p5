@@ -1,10 +1,12 @@
-let t1 = 'JESSICA'
-let t1a = 'DANCE'
-let t2 = 'Professional Practice Talk    ·    Microsoft Teams    ·    16:30    ·    Thursday 29th October'
-let t3 = 'Microsoft Teams'
-let t4 = 'Thursday 29th October'
-let t5 = '16:30'
+let fontRegular
 
+let t1 = "JESSICA";
+let t1a = "DANCE";
+let t2 =
+  "Professional Practice Talk    ·    Microsoft Teams    ·    16:30    ·    Thursday 29th October";
+let t3 = "Microsoft Teams";
+let t4 = "Thursday 29th October";
+let t5 = "16:30";
 
 // Spring drawing constants for top bar
 let springHeight = 32,
@@ -57,7 +59,6 @@ let Lc2y3 = 0;
 let Lax3 = 0;
 let Lay3 = 0;
 
-
 // Spring simulation constants
 let M = 1, // Mass
   K = 0.25, // Spring constant
@@ -70,31 +71,29 @@ let ps = R, // Position
   as = 0, // Acceleration
   f = 0; // Force
 
-
 let Anton;
 
 function preload() {
-  Anton = loadFont('Anton.ttf');
+  fontRegular = loadFont('Anton.ttf');
 }
 
 function setup() {
   createCanvas(windowHeight, windowHeight);
   rectMode(CORNERS);
   noStroke();
-  left = (width / 2) - 170 * (height / 700);
-  right = (width / 2) + 170 * (height / 700);
+  left = width / 2 - 170 * (height / 700);
+  right = width / 2 + 170 * (height / 700);
 
   // noCursor();
 }
 
 function windowResized() {
   resizeCanvas(windowHeight, windowHeight);
-  left = (width / 2) - 170 * (height / 700);
-  right = (width / 2) + 170 * (height / 700);
+  left = width / 2 - 170 * (height / 700);
+  right = width / 2 + 170 * (height / 700);
 }
 
 function draw() {
-
   let scalr = height / 700;
 
   scale(scalr, scalr);
@@ -104,15 +103,15 @@ function draw() {
   textAlign(LEFT);
   strokeWeight(0);
   fill(255, 255, 240);
-  textFont('Anton');
+  textFont(fontRegular);
   textStyle(BOLD);
   textSize(204);
   text(t1, 42, 220);
   textSize(264);
   text(t1a, 35, 465);
-  textFont('Helvetica');
+  textFont("Avenir");
   textSize(15);
-  text(t2, 42, 659);
+  text(t2, 58, 659);
 
   stroke(50);
   strokeWeight(6);
@@ -134,7 +133,7 @@ function draw() {
   endContour();
   endShape(CLOSE);
 
-  push();  
+  push();
   stroke(50);
   strokeWeight(6);
   strokeJoin(MITER);
@@ -143,14 +142,13 @@ function draw() {
   updateSpring();
   drawSpring();
   fill(0);
-  
-  pop();
 
+  pop();
 }
 
 function drawSpring() {
   // Draw base
-  
+
   fill(0);
   let baseWidth = 1.2 * ps + -8;
 
@@ -158,29 +156,29 @@ function drawSpring() {
   fill(255, 0, 0, 180);
 
   //right curve
-  c1x = - baseWidth + 35;
+  c1x = -baseWidth + 35;
   c1y = ps + springHeight + 20;
-  c2x = - baseWidth + 60;
+  c2x = -baseWidth + 60;
   c2y = ps + springHeight;
-  ax = - baseWidth + 120;
+  ax = -baseWidth + 120;
   ay = ps + springHeight;
 
-  //left curve 
-  Lc1x = + baseWidth - 35;
+  //left curve
+  Lc1x = +baseWidth - 35;
   Lc1y = ps + springHeight + 20;
-  Lc2x = + baseWidth - 60;
+  Lc2x = +baseWidth - 60;
   Lc2y = ps + springHeight;
-  Lax = + baseWidth - 25;
+  Lax = +baseWidth - 25;
   Lay = ps + springHeight + 100;
 
   //shape
   beginShape();
-  vertex(- baseWidth + 25, ps + springHeight + 100);
+  vertex(-baseWidth + 25, ps + springHeight + 100);
   bezierVertex(c1x, c1y, c2x, c2y, ax, ay);
-  vertex(+ baseWidth - 120, ps + springHeight);
+  vertex(+baseWidth - 120, ps + springHeight);
   bezierVertex(Lc2x, Lc2y, Lc1x, Lc1y, Lax, Lay);
-  vertex(+ baseWidth, 500);
-  vertex(- baseWidth, 500);
+  vertex(+baseWidth, 500);
+  vertex(-baseWidth, 500);
   endShape(CLOSE);
 
   // rect(left, ps, right, ps + springHeight);
@@ -200,7 +198,12 @@ function updateSpring() {
   }
 
   // Test if mouse if over the top bar
-  if (mouseX > left && mouseX < right && mouseY > 270 * (height / 700) && mouseY < 600 * (height / 700)) {
+  if (
+    mouseX > left &&
+    mouseX < right &&
+    mouseY > 270 * (height / 700) &&
+    mouseY < 600 * (height / 700)
+  ) {
     over = true;
   } else {
     over = false;
