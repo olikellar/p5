@@ -1,43 +1,49 @@
 //colours
 
-var backgroundc = ([0, 170, 255])
-var topc = ([140, 60, 2]);
-var rightc = ([215, 225, 120]);
-var bottomc = ([245, 245, 170]);
-var leftc = ([215, 225, 0]);
-var surroundc = ([0, 90, 70]);
+var backgroundc = [0, 170, 255];
+var topc = [140, 60, 2];
+var rightc = [215, 225, 120];
+var bottomc = [245, 245, 170];
+var leftc = [215, 225, 0];
+var surroundc = [0, 90, 70];
 
-var secondtopc = ([0, 80, 110]);
-var secondrightc = ([40, 200, 250]);
-var secondbottomc = ([120, 210, 210]);
-var secondleftc = ([0, 180, 210]);
-var secondsurroundc = ([255, 50, 0]);
+var secondtopc = [0, 80, 110];
+var secondrightc = [40, 200, 250];
+var secondbottomc = [120, 210, 210];
+var secondleftc = [0, 180, 210];
+var secondsurroundc = [255, 50, 0];
 
-var thirdtopc = ([155, 00, 0]);
-var thirdrightc = ([255, 100, 100]);
-var thirdbottomc = ([255, 150, 150]);
-var thirdleftc = ([255, 40, 40]);
-var thirdsurroundc = ([15, 140, 130]);
+var thirdtopc = [155, 0, 0];
+var thirdrightc = [255, 100, 100];
+var thirdbottomc = [255, 150, 150];
+var thirdleftc = [255, 40, 40];
+var thirdsurroundc = [15, 140, 130];
 
 //variables
 
-var thing = (0)
+var thing = 0;
 let on = 0;
 
 //———————————————————————————————————————————————————————————————
 
 function setup() {
-  createCanvas(900, 900);
+  // createCanvas(900, 900);
+  createCanvas(windowHeight, windowHeight);
   noCursor();
 }
 
+function windowResized() {
+  resizeCanvas(windowHeight, windowHeight);
+}
+
 function draw() {
+  let scalr = windowHeight / 900;
+  scale(scalr, scalr);
+
   background(backgroundc);
 
   stroke(0);
   strokeWeight(1.2);
-
-
 
   //———————————————————————————————————————————————————————————————
 
@@ -61,11 +67,7 @@ function draw() {
   secondouterx = map(mouseX, 0, width, 0, xsecondout, true);
   secondinnerx = map(mouseX, 0, width, 0, xsecondin, true);
 
-
-
-
   //———————————————————————————————————————————————————————————————
-
 
   //Third Window Outer
   let xthirdout = 88;
@@ -76,9 +78,6 @@ function draw() {
   thirdouterx = map(mouseX, 0, width, 0, xthirdout, true);
   thirdinnerx = map(mouseX, 0, width, 0, xthirdin, true);
 
-
-
-
   //———————————————————————————————————————————————————————————————
 
   //Horizon Line
@@ -88,7 +87,6 @@ function draw() {
   // line(0, 405, width, 405);
   // line(0, 445, width, 445);
   // line(0, 545, width, 545);
-
 
   //———————————————————————————————————————————————————————————————
 
@@ -279,14 +277,12 @@ function draw() {
   //     line(cx-160, cy+400, 538, 375);
   //     line(0, sy+100, width, sy+100);
 
-
-
   stroke(0);
 
   //———————————————————————————————————————————————————————————————
   //Sky
-  fill(200, 240, 225)
-  rect(0, 0, 900, 375)
+  fill(200, 240, 225);
+  rect(0, 0, 900, 375);
 
   //———————————————————————————————————————————————————————————————
 
@@ -329,9 +325,9 @@ function draw() {
   fill(thirdsurroundc);
   beginShape();
   vertex(0, 0);
-  vertex(width, 0);
-  vertex(width, height);
-  vertex(0, height);
+  vertex(width / scalr, 0);
+  vertex(width / scalr, height / scalr);
+  vertex(0, height / scalr);
 
   beginContour();
   vertex(tx, ty);
@@ -346,26 +342,24 @@ function draw() {
 
   //PLantPot
 
-
-  if (mouseX > 600) {
+  if (mouseX > 600 * scalr) {
     on = 3;
-  } else if (mouseX < -600) {
+  } else if (mouseX < -(600 * scalr)) {
     on = 0;
   }
 
-  if (on == 3 && mouseX < 215) {
+  if (on == 3 && mouseX < 215 * scalr) {
     thing = random(0, 5);
   }
 
-  if (on == 3 && mouseX > 885) {
+  if (on == 3 && mouseX > 885 * scalr) {
     thing = random(0, 5);
   }
 
   if (thing > 3 && thing < 5) {
-
     {
       //backleaf
-      fill('green');
+      fill("green");
       beginShape();
       vertex(543 + thirdinnerx, 368);
       vertex(546 + thirdinnerx, 367);
@@ -426,37 +420,36 @@ function draw() {
       vertex(535 + thirdinnerx, 408);
       vertex(530 + thirdinnerx, 407);
       vertex(527 + thirdinnerx, 400);
-      vertex(527 + thirdinnerx, 396)
+      vertex(527 + thirdinnerx, 396);
       vertex(530 + thirdinnerx, 390);
       vertex(528 + thirdinnerx, 388);
       vertex(528 + thirdinnerx, 387);
       vertex(535 + thirdinnerx, 387.5);
       endShape(CLOSE);
 
-
       //Plant
       //leaf4
-      fill('green');
+      fill("green");
       beginShape();
-      vertex(541 + (1.02 * thirdinnerx), 381);
-      vertex(545 + (1.02 * thirdinnerx), 380);
-      vertex(547 + (1.02 * thirdinnerx), 381);
-      vertex(548 + (1.02 * thirdinnerx), 383);
-      vertex(547 + (1.02 * thirdinnerx), 387);
-      vertex(544 + (1.02 * thirdinnerx), 382);
-      vertex(538 + (1.02 * thirdinnerx), 384);
+      vertex(541 + 1.02 * thirdinnerx, 381);
+      vertex(545 + 1.02 * thirdinnerx, 380);
+      vertex(547 + 1.02 * thirdinnerx, 381);
+      vertex(548 + 1.02 * thirdinnerx, 383);
+      vertex(547 + 1.02 * thirdinnerx, 387);
+      vertex(544 + 1.02 * thirdinnerx, 382);
+      vertex(538 + 1.02 * thirdinnerx, 384);
       endShape(CLOSE);
       //leaf1
       beginShape();
-      vertex(538 + (1.02 * thirdinnerx), 378);
-      vertex(536 + (1.02 * thirdinnerx), 378.5);
-      vertex(535 + (1.02 * thirdinnerx), 378);
-      vertex(534 + (1.02 * thirdinnerx), 382);
-      vertex(533 + (1.02 * thirdinnerx), 388);
-      vertex(534 + (1.02 * thirdinnerx), 393);
-      vertex(536 + (1.02 * thirdinnerx), 396);
-      vertex(538 + (1.02 * thirdinnerx), 392);
-      vertex(539 + (1.02 * thirdinnerx), 387);
+      vertex(538 + 1.02 * thirdinnerx, 378);
+      vertex(536 + 1.02 * thirdinnerx, 378.5);
+      vertex(535 + 1.02 * thirdinnerx, 378);
+      vertex(534 + 1.02 * thirdinnerx, 382);
+      vertex(533 + 1.02 * thirdinnerx, 388);
+      vertex(534 + 1.02 * thirdinnerx, 393);
+      vertex(536 + 1.02 * thirdinnerx, 396);
+      vertex(538 + 1.02 * thirdinnerx, 392);
+      vertex(539 + 1.02 * thirdinnerx, 387);
       endShape(CLOSE);
       //leaf2
       beginShape();
@@ -471,26 +464,25 @@ function draw() {
       endShape(CLOSE);
       //leaf3
       beginShape();
-      vertex(532 + (1.01 * thirdinnerx), 382);
-      vertex(528 + (1.01 * thirdinnerx), 382);
-      vertex(525 + (1.01 * thirdinnerx), 386);
-      vertex(526 + (1.01 * thirdinnerx), 390);
-      vertex(528 + (1.01 * thirdinnerx), 393);
-      vertex(528 + (1.01 * thirdinnerx), 390);
-      vertex(530 + (1.01 * thirdinnerx), 385);
-      vertex(530 + (1.01 * thirdinnerx), 382);
+      vertex(532 + 1.01 * thirdinnerx, 382);
+      vertex(528 + 1.01 * thirdinnerx, 382);
+      vertex(525 + 1.01 * thirdinnerx, 386);
+      vertex(526 + 1.01 * thirdinnerx, 390);
+      vertex(528 + 1.01 * thirdinnerx, 393);
+      vertex(528 + 1.01 * thirdinnerx, 390);
+      vertex(530 + 1.01 * thirdinnerx, 385);
+      vertex(530 + 1.01 * thirdinnerx, 382);
       endShape(CLOSE);
     }
   }
 
-  print('thing', thing)
-  print('on', on)
+  print("thing", thing);
+  print("on", on);
   //———————————————————————————————————————————————————————————————
 
   //Floor
   fill(10, 63, 143);
-  rect(0, 480, width, height);
-
+  rect(0, 480, width / scalr, height / scalr);
 
   //———————————————————————————————————————————————————————————————
 
@@ -570,9 +562,9 @@ function draw() {
   fill(secondsurroundc);
   beginShape();
   vertex(0, 0);
-  vertex(width, 0);
-  vertex(width, height);
-  vertex(0, height);
+  vertex(width / scalr, 0);
+  vertex(width / scalr, height / scalr);
+  vertex(0, height / scalr);
 
   beginContour();
   vertex(lx, ly);
@@ -592,9 +584,6 @@ function draw() {
   endShape(CLOSE);
 
   //———————————————————————————————————————————————————————————————
-
-
-
 
   //———————————————————————————————————————————————————————————————
 
@@ -672,9 +661,9 @@ function draw() {
   fill(surroundc);
   beginShape();
   vertex(0, 0);
-  vertex(width, 0);
-  vertex(width, height);
-  vertex(0, height);
+  vertex(width / scalr, 0);
+  vertex(width / scalr, height / scalr);
+  vertex(0, height / scalr);
 
   beginContour();
   vertex(dx, dy);
@@ -695,13 +684,11 @@ function draw() {
 
   //———————————————————————————————————————————————————————————————
 
-
   // stroke(0);
   // line(dix, diy, 538, 375);
   // line(djx, djy, 538, 375);
   // line(dkx, dky, 538, 375);
   // line(dlx, dly, 538, 375);
-
 
   //   //coordinates
   //   noStroke();
@@ -711,8 +698,6 @@ function draw() {
   //   text('x: ' + mouseX, width - 50, height - 30);
   //   text('y: ' + mouseY, width - 50, height - 20);
 
-
   //   stroke(255, 0, 0);
   //   point(mouseX, mouseY);
-
 }
